@@ -1053,7 +1053,11 @@ class File
         }
 
         if (empty($data) === false) {
-            $message = vsprintf($message, $data);
+			if(is_array($data)){
+				$message = vsprintf($message, $data);
+			}else{
+				$message='';
+			}
         }
 
         if (isset($messages[$line]) === false) {
